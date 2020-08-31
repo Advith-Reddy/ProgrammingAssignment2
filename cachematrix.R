@@ -1,16 +1,17 @@
 myCacheMatrix <- function(x = matrix()){
+  #function takes matrix and process for the inverse
   inver <- NULL
-  set <- function(y){
+  set <- function(y){ #sets the matrix 
     x <<- y
     inver <<- NULL
   }
-  get <- function() {x}
-  setMatrix <- function(inverse) {inver <<- inverse}
-  getMatrix <- function() {inver}
+  get <- function() {x} #calling get will show the matrix
+  setMatrix <- function(inverse) {inver <<- inverse} #helps to set the matrix for inverse function as in line 22
+  getMatrix <- function() {inver} #shows the inverse as in line 15
   list(set = set, get = get, setMatrix = setMatrix, getMatrix = getMatrix)
 }
 
-sol <- function(x, ...){
+sol <- function(x, ...){ #gives the solution that is inverse of matrix
   inver <- x$getMatrix()
   if(!is.null(inver)){
     message(" retrieving cached data ")

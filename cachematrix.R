@@ -13,10 +13,15 @@ myCacheMatrix <- function(x = matrix()){
 
 sol <- function(x, ...){ #gives the solution that is inverse of matrix
   inver <- x$getMatrix()
+  # if the inverse has already been calculated and returns null, 
+  # return this instance
   if(!is.null(inver)){
     message(" retrieving cached data ")
     return(inver)
   }
+  
+  # if it is not null, calculate it using solve()
+  # then return it
   k <- x$get()
   inver <- solve(k, ...)
   x$setMatrix(inver)
